@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Senha</title>
+  <link rel="stylesheet" href="nova-senha.css" />
+  <link rel="icon" href="imgs/logo-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+  <header class="header">
+    <img src="imgs/logo-removebg-preview.png" alt="Logo Rede do Orgulho" class="logo" />
+    <h1>Rede do Orgulho</h1>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <h2>Escolha uma nova senha</h2>
+      <p>Sua senha antiga foi resetada. Por favor insira uma nova senha para a sua conta.</p>
+
+     <form id="form-senha">
+        <div class="form-group">
+          <input type="password" id="senha" name="senha" required placeholder=" " />
+          <label for="senha">Criar senha</label>
+          <span class="icon-olho">👁️</span>
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="confirmar" name="confirmar" required placeholder=" " />
+          <label for="confirmar">Confirmar senha</label>
+          <span class="icon-olho">👁️</span>
+        </div>
+
+        <button type="submit" class="btn-submit">Alterar senha</button>
+      </form>
+    </section>
+
+    <section class="illustration">
+      <img src="imgs/nova-senha-removebg.png" alt="Ilustração nova senha" />
+    </section>
+  </main>
+  <script>
+  const form = document.getElementById('form-senha');
+  const params = new URLSearchParams(window.location.search);
+  const email = params.get('email');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const senha = document.getElementById('senha').value;
+    const confirmar = document.getElementById('confirmar').value;
+
+    if (senha !== confirmar) {
+      alert('As senhas não coincidem!');
+      return;
+    }
+
+    const res = await fetch('http://localhost:3000/alterar-senha', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, novaSenha: senha })
+    });
+
+    const texto = await res.text();
+    if (res.ok) {
+      alert('Senha alterada com sucesso!');
+      window.location.href = 'login.html';
+    } else {
+      alert(texto);
+    }
+  });
+</script>
+</body>
+</html>

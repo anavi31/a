@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rede do Orgulho - Detalhes do Local</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="locais-mapa.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <header class="header">
+  <img src="imgs/logo-removebg-preview.png" alt="Logo Rede do Orgulho" class="header-logo" />
+  <div class="header-content">
+    <h1 class="header-title">Rede do Orgulho</h1>
+    <nav class="nav-menu">
+      <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="suporte.html">Suporte</a></li>
+          <li><a class="active" href="locais.html">Locais de Apoio</a></li>
+          <li><a href="forum.html">Fórum</a></li>  
+          <li><a href="perfil.html">Perfil</a></li>
+          <li><a href="glossario.html">Glossário</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <section class="destaque">
+    <div class="faixa">
+      <h2>Locais de apoio</h2>
+      <p>Encontre lugares que você pode visitar livre para se sentir acolhido(a). Veja no mapa o endereço e comentários de outros usuários.</p>
+    </div>
+  </section>
+
+  <main class="faixa">
+    <article id="conteudo-local">
+      <h3 id="nome-local">Carregando...</h3>
+      <p id="tag-local"></p>
+
+      <div id="mapa" style="height: 400px; border-radius: 8px; margin-top: 20px;"></div>
+    </article>
+
+    <section>
+      <h4>Precisa de ajuda para encontrar o local?</h4>
+      <p>Veja o mapa acima com as informações de localização.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column brand">
+        <div class="brand-content">
+          <img src="imgs/logo-removebg-preview.png" alt="Logo Rede do Orgulho" class="footer-logo" />
+          <h4 class="brand-title">Rede do Orgulho</h4>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#">Advocacional</a></li>
+          <li><a href="#">Psicológico</a></li>
+          <li><a href="#">Assistência Social</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="#">Fórum</a></li>
+          <li><a href="#">Locais de segurança</a></li>
+          <li><a href="#">Suporte</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Sobre nós</h4>
+        <ul>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr />
+    <div class="footer-bottom">
+      <p>© 2025 Rede do Orgulho. Todos os direitos reservados.</p>
+      <p>
+        <a href="#">Política de Privacidade</a> |
+        <a href="#">Termos de Serviço</a> |
+        <a href="#">Cookies</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+  
+      const nome = "Casa De Acolhimento Marielle Franco Brasil";
+      const tag = "Casa de Acolhimento";
+      document.getElementById("nome-local").textContent = nome;
+      document.getElementById("tag-local").textContent = "Tag: " + tag;
+
+     
+      const lat = -12.9822;
+      const lon = -38.4894;
+
+      const mapa = L.map('mapa').setView([lat, lon], 16);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(mapa);
+
+      L.marker([lat, lon]).addTo(mapa).bindPopup(nome).openPopup();
+    });
+  </script>
+</body>
+</html>

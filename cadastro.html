@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro | Rede do Orgulho</title>
+  <link rel="stylesheet" href="cadastro.css" />
+  <link rel="icon" href="imgs/logo-removebg-preview.png" type="image/x-icon" />
+</head>
+<body>
+  <header class="header">
+    <img src="imgs/logo-removebg-preview.png" alt="Logo Rede de Apoio LGBTQIA+">
+    <div class="header-title">Rede do Orgulho</div>
+  </header>
+
+  <div class="container">
+    <div class="image-section">
+      <img src="imgs/cadastro-removebg.png" alt="Ilustração de cadastro">
+    </div>
+
+    <div class="form-section">
+      <h2>Cadastre-se</h2>
+      <p>Vamos preparar tudo para que você possa acessar sua conta pessoal.</p>
+
+      <form id="form">
+        <div class="input-row">
+          <div class="input-group">
+            <input type="text" id="nome" name="nome" required placeholder=" " />
+            <label for="nome">Nome (ou Nome Social)</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="sobrenome" name="sobrenome" required placeholder=" " />
+            <label for="sobrenome">Sobrenome</label>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <select id="genero" name="genero" required>
+              <option value="" disabled selected hidden></option>
+              <option value="mulhercis">Mulher Cis</option>
+              <option value="mulhertrans">Mulher Trans</option>
+              <option value="homemcis">Homem Cis</option>
+              <option value="homemtrans">Homem Trans</option>
+              <option value="Travesti">Travesti</option>
+              <option value="agenero">Agênero</option>
+              <option value="nao-binario">Não binário</option>
+              <option value="outro">Outro</option>
+              <option value="prefiro-nao-dizer">Prefiro não dizer</option>
+            </select>
+            <label for="genero">Identidade de Gênero</label>
+          </div>
+          <div class="input-group">
+            <select id="orientacao" name="orientacao" required>
+              <option value="" disabled selected hidden></option>
+              <option value="heterossexual">Heterossexual</option>
+              <option value="lesbica">Lésbica</option>
+              <option value="gay">Gay</option>
+              <option value="bissexual">Bissexual</option>
+              <option value="assexual">Assexual</option>
+              <option value="pansexual">Pansexual</option>
+              <option value="outro">Outro</option>
+              <option value="prefiro-nao-dizer">Prefiro não dizer</option>
+            </select>
+            <label for="orientacao">Orientação Sexual</label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Email</label>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <input type="tel" id="telefone" name="telefone" required placeholder=" " />
+            <label for="telefone">Telefone (Apenas Números)</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="cpf" name="cpf" required placeholder=" " />
+            <label for="cpf">CPF (Apenas Números)</label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="senha" name="senha" required placeholder=" " />
+          <label for="senha">Senha</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="confirma-senha" name="confirmar" required placeholder=" " />
+          <label for="confirma-senha">Confirme sua senha</label>
+        </div>
+
+        <div class="options">
+          <label>
+            <input type="checkbox" required />
+            Eu concordo com todos os <a href="#">Termos</a> e <a href="#">Políticas de Privacidade</a>
+          </label>
+        </div>
+
+        <button type="submit" class="login-btn">Criar conta</button>
+        <p id="resposta" style="margin-top: 1rem; color: green;"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('form');
+    const resposta = document.getElementById('resposta');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const dados = Object.fromEntries(new FormData(form).entries());
+
+      if (dados.senha !== dados.confirmar) {
+        resposta.textContent = 'As senhas não coincidem.';
+        resposta.style.color = 'red';
+        return;
+      }
+
+      delete dados.confirmar;
+
+      try {
+        const res = await fetch('http://localhost:3000/cadastro', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+        });
+
+        const texto = await res.text();
+        if (res.ok) {
+          window.location.href = `codigo-verificacao-conta.html?email=${encodeURIComponent(dados.email)}`;
+        } else {
+          resposta.textContent = texto;
+          resposta.style.color = 'red';
+        }
+      } catch (err) {
+        resposta.textContent = 'Erro ao enviar.';
+        resposta.style.color = 'red';
+      }
+    });
+  </script>
+
+</body>
+</html>

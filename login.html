@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Rede do Orgulho</title>
+  <link rel="icon" href="imgs/logo-removebg-preview.png" type="image/x-icon">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <header class="header">
+    <img src="imgs/logo-removebg-preview.png" alt="Logo Rede de Apoio LGBTQIA+">
+    <div class="header-title">Rede do Orgulho</div>
+  </header>
+
+  <div class="container">
+    <div class="form-section">
+      <h2>Login</h2>
+      <p>Faça o login para acessar sua conta</p>
+
+      <form id="login-form">
+        <div class="input-group">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Email</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="password" name="senha" required placeholder=" " />
+          <label for="password">Senha</label>
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox"> Lembrar-se</label>
+        <a href="esqueci-senha.html">Esqueci a senha</a>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+        
+        <div class="register-link">
+          Não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+        </div>
+
+        <div class="divider">Ou conecte-se com</div>
+
+        <a href="/auth/google">
+        <button type="button" class="google-btn">
+          <img src="imgs/Logo-Google-G.png" alt="Google logo">
+          Entrar com Google
+        </button>
+        </a>
+      </form>
+
+      <p id="mensagem" style="color: red;"></p>
+
+    </div>
+
+    <div class="image-section">
+      <img src="imgs/login-removebg.png" alt="Ilustração de pessoas LGBTQIA+">
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const msg = document.getElementById('mensagem');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const dados = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+        });
+
+        const texto = await res.text();
+        if (res.ok) {
+          msg.textContent = texto;
+          msg.style.color = 'green';
+          setTimeout(() => {
+            if (dados.email.endsWith('@redeorgulho.com')) {
+              window.location.href = 'visao-geral.html';
+            } else {
+              window.location.href = 'home.html';
+            }
+          }, 1000);
+        } else {
+          msg.textContent = texto;
+          msg.style.color = 'red';
+        }
+      } catch (err) {
+        msg.textContent = 'Erro ao enviar login.';
+        msg.style.color = 'red';
+      }
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const erro = urlParams.get('erro');
+
+    if (erro === 'email') {
+    msg.textContent = '⚠️ Login com Google falhou: e-mail não cadastrado. Cadastre-se antes de se conectar!';
+    msg.style.color = 'red';
+    }
+  </script>
+
+</body>
+</html>

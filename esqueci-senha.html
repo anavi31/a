@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esqueceu sua senha?</title>
+  <link rel="icon" href="imgs/logo-removebg-preview.png" type="image/x-icon">
+  <link rel="stylesheet" href="esqueci-senha.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="imgs/logo-removebg-preview.png" alt="Logo Rede do Orgulho" class="logo" />
+    <h1>Rede do Orgulho</h1>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <a href="login.html" class="back"><span class="arrow">&lt;</span> Voltar ao login</a>
+      <h2>Esqueceu sua senha?</h2>
+      <p>Não se preocupe, acontece com todos nós. Insira seu email abaixo para recuperar sua senha.</p>
+
+     <form id="form-recuperar">
+        <div class="form-group">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Email</label>
+        </div>
+        <button type="submit" class="btn-submit">Enviar</button>
+      </form>
+
+      <div class="divider"><span>ou conecte-se com</span></div>
+      <a href="/auth/google">
+      <button type="button" class="google-btn">
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
+          Entrar com Google
+      </button>
+      </a>
+    </section>
+
+    <section class="illustration">
+      <img src="imgs/esqueceu-sua-senha-removebg.png" alt="Ilustração" />
+    </section>
+  </main>
+  <script>
+  const form = document.getElementById('form-recuperar');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+
+    try {
+      const res = await fetch('http://localhost:3000/recuperar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+
+      const texto = await res.text();
+      if (res.ok) {
+        window.location.href = `codigo-verificacao-senha.html?email=${encodeURIComponent(email)}`;
+      } else {
+        alert(texto);
+      }
+    } catch (err) {
+      alert('Erro ao enviar email.');
+    }
+  });
+</script>
+</body>
+</html>

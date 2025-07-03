@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificação de Código</title>
+  <link rel="stylesheet" href="codigo-verificacao.css" />
+  <link rel="icon" href="imgs/logo-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+  <header class="header">
+    <img src="imgs/logo-removebg-preview.png" alt="Logo Rede do Orgulho" class="logo" />
+    <h1>Rede do Orgulho</h1>
+  </header>
+
+  <main class="container">
+    <section class="form-section">
+      <a href="login.html" class="back"><span class="arrow">&lt;</span> Voltar ao login</a>
+      <h2>Código de verificação</h2>
+      <p>Um código de autenticação foi enviado ao seu email.</p>
+
+      <form id="verificacao-form">
+        <div class="form-group">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Seu e-mail</label>
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="codigo" name="codigo" required placeholder=" " maxlength="10" />
+          <label for="codigo">Inserir código</label>
+          <span class="icon-olho">👁️</span>
+        </div>
+
+        <div class="resend">Não recebeu um código? <a href="#" id="reenviar-link">Reenviar</a></div>
+        <button type="submit" class="btn-submit">Verificar</button>
+        <p id="resposta" style="margin-top: 1rem;"></p>
+      </form>
+
+      <script>
+        const form = document.getElementById('verificacao-form');
+        const resposta = document.getElementById('resposta');
+
+        const params = new URLSearchParams(window.location.search);
+        const email = params.get('email');
+        if (email) document.getElementById('email').value = email;
+
+        document.getElementById('reenviar-link').addEventListener('click', async (e) => {
+          e.preventDefault();
+          const email = document.getElementById('email').value;
+
+          if (!email) return alert('Preencha o e-mail primeiro!');
+
+          const res = await fetch('http://localhost:3000/reenviar-codigo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+
+          const texto = await res.text();
+          alert(texto);
+        });
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const dados = Object.fromEntries(new FormData(form).entries());
+
+          try {
+            const res = await fetch('http://localhost:3000/validar-codigo', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(dados)
+            });
+
+            const texto = await res.text();
+            resposta.textContent = texto;
+            resposta.style.color = res.ok ? 'green' : 'red';
+            if (res.ok) {
+              window.location.href = `nova-senha.html?email=${encodeURIComponent(dados.email)}`;
+            }
+          } catch (err) {
+            resposta.textContent = 'Erro ao verificar o código.';
+            resposta.style.color = 'red';
+          }
+        });
+      </script>
+    </section>
+
+    <section class="illustration">
+      <img src="imgs/codigo-verifcacao-removebg.png" alt="Ilustração verificação" />
+    </section>
+  </main>
+</body>
+</html>

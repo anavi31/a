@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px 40px;
+  color: #000;
+}
+
+.logo img {
+  width: 80px;
+  height: auto;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.login {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.main-content {
+  background-color: #702F8A;
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  flex: 1;
+}
+
+.support-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.text-content {
+  max-width: 50%;
+  color: white;
+  padding-top: 60px;
+  padding-bottom: 165px;
+  padding-left: 50px;
+}
+
+.text-content h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.text-content p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.image-content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 46%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: -2px;
+}

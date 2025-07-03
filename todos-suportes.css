@@ -1,0 +1,642 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #111;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 30px 60px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header-logo {
+  width: 87px;
+  height: auto;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.header-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: black;
+  margin-bottom: 10px;
+  margin-left: -70px;
+  text-align: center;
+}
+
+.nav-menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -70px;
+  flex-wrap: wrap;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+.nav-menu li:nth-child(1) a { color: #C897EF; }
+.nav-menu li:nth-child(2) a { color: #0090F0; }
+.nav-menu li:nth-child(3) a { color: #FF2121; }
+.nav-menu li:nth-child(4) a { color: #EFFF3C; }
+.nav-menu li:nth-child(5) a { color: #F57D1A; }
+.nav-menu li:nth-child(6) a { color: #33B786; }
+
+.nav-menu a:hover {
+  opacity: 0.7;
+}
+
+.psicologia-hero {
+  background-color: #0090f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.hero-text h1 {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.hero-img {
+  position: relative;
+}
+
+.hero-img img {
+  width: 140px;
+  border-radius: 10px;
+}
+
+.tag {
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  background: white;
+  color: #0090f0;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.psicologia-main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.intro h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.intro p {
+  margin-bottom: 15px;
+}
+
+.intro ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.intro ul li {
+  margin-bottom: 10px;
+}
+
+.formulario {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.formulario h3 {
+  margin-bottom: 10px;
+}
+
+.formulario form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1 1 100%;
+  font-size: 14px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"] {
+  flex: 1 1 calc(33.333% - 10px);
+}
+
+.formulario textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.formulario button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #0090f0;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 19px;
+  cursor: pointer;
+  margin-left: 40pc;
+}
+
+.review-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 1000px;
+  margin: 60px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.review-box h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.review-summary {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.rating-number {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.rating-stars {
+  font-size: 24px;
+  color: #0090F0;
+  margin: 5px 0;
+}
+
+.rating-bars .bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.bar-fill {
+  flex: 1;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  background-color: #0090F0;
+  width: 100%;
+}
+
+.bar span {
+  min-width: 30px;
+  text-align: right;
+}
+
+.comments {
+  margin-top: 30px;
+}
+
+.comment {
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+}
+
+.comment:first-child {
+  border-top: none;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.comment a {
+  font-size: 13px;
+  color: #0090F0;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.comment-form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+}
+
+.comment-form button {
+  align-self: flex-start;
+  background-color: #0090F0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.footer {
+  background-color: #0090F0;
+  color: white;
+  padding: 40px 20px 20px;
+  font-size: 14px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  margin: 20px;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: white;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #0090F0;
+}
+
+.brand-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 50px;
+  height: auto;
+}
+
+.brand-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 13px;
+}
+
+.footer-bottom a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-bottom a:hover {
+  color: #0090F0;
+}
+
+.interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.15);
+}
+
+.interactive-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.card-content hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 12px 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.card-footer a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.card-footer a:hover {
+  text-decoration: underline;
+}
+
+.card-free {
+  color: #0090F0;
+  font-weight: bold;
+}
+
+.support-text {
+  font-weight: 500;
+  font-size: 18px;
+  color: black;
+  text-align: justify;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  background-color: #0090F0;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form button:hover {
+  background-color: #007acc;
+}
+
+section .avaliacoes-box {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  margin-top: 30px;
+}
+
+.avaliacoes h3 {
+  margin-left: 44.5pc;
+}
+
+.avaliacoes-box p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.psychology-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0090F0;
+  color: white;
+  padding: 60px 80px;
+  position: relative;
+  overflow: visible;
+}
+
+.psychology-banner .highlight-left h2 {
+  font-size: 32px;
+  font-weight: 800;
+  position: relative;
+  left: 150px;
+}
+
+.psychology-banner .highlight-card {
+  position: absolute;
+  right: 80px;
+  bottom: -80px;
+}
+
+.psychology-banner .interactive-card {
+  width: 250px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.psychology-banner .interactive-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.15);
+}
+
+.psychology-banner .interactive-card img {
+  width: 100%;
+  height: auto;
+}
+
+.psychology-banner .card-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.psychology-banner .card-content {
+  padding: 16px;
+  color: black;
+}
+
+.psychology-banner .card-content h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.psychology-banner .card-content hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 8px 0;
+}
+
+.psychology-banner .card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.psychology-banner .card-free {
+  color: #0090F0;
+  font-weight: bold;
+}
+
+.support-wrapper {
+  max-width: 1000px;
+  margin: 100px auto 0;
+  padding: 0 20px;
+}
+
+.support-wrapper h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.support-wrapper p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.support-wrapper ul {
+  padding-left: 20px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.support-wrapper ul li {
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-content {
+    align-items: center;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

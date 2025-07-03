@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #fdf1f5;
+  color: #5b2c6f;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #996BA7;
+  color: white;
+  gap: 20px;
+}
+
+.logo {
+  height: 75px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-section {
+  max-width: 400px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #6F2F83;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  color: #996BA7;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 18px 40px 10px 12px;
+  border: 2px solid #996BA7;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #000;
+  background-color: transparent;
+  outline: none;
+}
+
+.form-group label {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  background-color: #fdf1f5;
+  padding: 0 6px;
+  font-size: 14px;
+  color: #000;
+  transition: 0.2s ease;
+  pointer-events: none;
+  font-weight: normal;
+}
+
+.form-group input:focus {
+  border-color: #6F2F83;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -1px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.icon-olho {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #996BA7;
+}
+
+.btn-submit {
+  background-color: #996BA7;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #6F2F83;
+}
+
+.illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration img {
+  width: 100%;
+  max-width: 500px;
+}
