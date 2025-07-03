@@ -1,0 +1,14 @@
+nome,sobrenome,genero,orientacao,email,telefone,cpf,senha,verificado,tipo
+Raiana,vitoria,mulhercis,bi,raianav31@gmail.com,71993771370,86544032506,$2b$10$T014wqO2POUkvXxQBzgojeCACLOpszO6lnxdmr2cq8gtcX48Z8Sxi,true,comum
+lua,santana,outro,bi,nanaejico@gmail.com,75998566257,86452178962,$2b$10$c8PZvRbqa/dAo.UHP5qkKuJvQiSO1KlOBmMvcGy2yx5bdesdlbqFW,true,comum
+gael,silva,homemcis,gay,lililoberss2@gmail.com,73985652145,45265895203,$2b$10$uqVW7DyqQoAM4QLbaRujj.MXSEasCUoXYdF2O4G0bcXyFsrknZsiK,true,comum
+ariel,silva,outro,gay,kyriky95@gmail.com,73985652145,45265895203,$2b$10$zUaZPEW8EsrfUNAFj5M3sOumDto0.mLvtnyNH6vSxI7L6rve.6Ul.,true,comum
+leonardo,pinheiro,homemcis,gay,str4yio0na@gmail.com,71998562354,58741265890,$2b$10$pWGN9r0K95d3HfQoSZa.Q.zOkBhZNmdXE9o7VC5LkUan9Wpqw09i.,true,comum
+igor,santos,homemcis,hetero,sigor2154@gmail.com,71982544156,86542526423,$2b$10$vJW1y7TXC.aKagE.On3Smueqngtr8WId4F/ZfMUzQLHE7XIGUSJJS,true,comum
+João,Lima,homemtrans,gay,yongboklee510@gmail.com,71986547843,85474520154,$2b$10$DFsYPjIvxWuSuaN5UaeV4ezm2iGxjQpfTtK2xOFtv4Vltl/27DcI2,true,comum
+Amanda,Sales,mulhercis,lesbica,johnnysuhjj@gmail.com,75986541244,85477458962,$2b$10$0q7I5jRYKk29HW4nzOlZHOL4rGa/6g5tCOC76UAVgLMMhuKxqY3lG,true,comum
+Caitlyn,Kiramman,mulhercis,lesbica,miguel.0205brgg@gmail.com,71985421577,45785623540,$2b$10$NuI2UmXOHVpHPY7YjsN3o.Qy6PoFoFFlKb4ttKZXw96qpnCUEW0aW,true,comum
+Taliyah,Nasaaj,mulhertrans,heterossexual,miguel.2005brgg@gmail.com,71965842563,32015485120,$2b$10$Y/oHAjf.2/PWHVB1FgiUmuLJ/M8htOqWNb4OcDmaL3CXO6PeVswe.,true,comum
+Mod1,redeorgulho,mulhercis,bissexual,mod1@redeorgulho.com,71986548985,85478569421,$2a$10$3WMqIP2veFxNFEQsalIz6ew3eQSjJiXaw99Fx3LwZ05Dui2pb8Kw2,true,moderador
+Mod2,redeorgulho,homemcis,heterossexual,mod2@redeorgulho.com,71985266598,865412589652,$2a$10$3WMqIP2veFxNFEQsalIz6ew3eQSjJiXaw99Fx3LwZ05Dui2pb8Kw2,true,moderador
+Mod3,redeorgulho,homemcis,heterossexual,mod3@redeorgulho.com,7199952658,65895623501,$2a$10$3WMqIP2veFxNFEQsalIz6ew3eQSjJiXaw99Fx3LwZ05Dui2pb8Kw2,true,moderador
